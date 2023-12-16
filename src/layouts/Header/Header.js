@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 const Header = () => {
   const drawerWidth = 240;
-const title = "Battery Private Ltd"
+const title = "Customer Details"
   return (
     <AppBar
       position="fixed"

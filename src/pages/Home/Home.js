@@ -8,7 +8,7 @@ import MainContent from "../../layouts/MainContent/MainContent";
 
 import Footer from "../../layouts/Footer/Footer";
 
-export default function PermanentDrawerLeft() {
+ function Home() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -19,3 +19,5 @@ export default function PermanentDrawerLeft() {
     </Box>
   );
 }
+
+export default Home

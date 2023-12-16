@@ -1,6 +1,6 @@
 import React from 'react'
 import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
+
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -11,12 +11,13 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PeopleIcon from '@mui/icons-material/People';
 import LogoutIcon from '@mui/icons-material/Logout';
-
+import Logo from '../../components/Logo/Logo'; 
 
 
 const Menu = () => {
   const drawerWidth = 240;
-  const MenuItems = ['Customer','Users', 'Sales','Logout']
+  const MenuItems = ['Home','Users', 'Sales','Logout']
+
   return (
     <Drawer
     sx={{
@@ -30,14 +31,17 @@ const Menu = () => {
     variant="permanent"
     anchor="left"
   >
-    <Toolbar />
+
+    <Logo />
+
+ 
     <Divider />
     <List>
       {MenuItems.map((text, index) => (
        <ListItem key={text} disablePadding>
        <ListItemButton>
          <ListItemIcon>
-           {text === 'Customer' && <PeopleIcon />}
+           {text === 'Home' && <PeopleIcon />}
            {text === 'Users' && <SupervisedUserCircleIcon />}
            {text === 'Sales' && <TrendingUpIcon />}
            {text === 'Logout' && <LogoutIcon />}
