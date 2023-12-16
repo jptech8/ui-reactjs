@@ -2,9 +2,9 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
-const Header = () => {
+const MenuButton = () => {
   const drawerWidth = 240;
-const title = "Battery Private Ltd"
+
   return (
     <AppBar
       position="fixed"
@@ -12,11 +12,11 @@ const title = "Battery Private Ltd"
     >
       <Toolbar>
         <Typography variant="h6" noWrap component="div">
-          {title}
+          Permanent drawer
         </Typography>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default Header;
+export default MenuButton;

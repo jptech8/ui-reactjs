@@ -1,17 +1,21 @@
-import React from "react";
-import {  Box, Typography } from "@mui/material";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import Header from "../../layouts/Header/Header";
+import Menu from "../../layouts/Menu/Menu";
+import MainContent from "../../layouts/MainContent/MainContent";
+
 import Footer from "../../layouts/Footer/Footer";
 
-const Home = () => (
-  <div>
-    <Header />
-    {/* Your main content goes here */}
-    <Box sx={{ marginTop: "3em" }}>
-      <Typography variant="body1">This is the main content area of your homepage.</Typography>
+export default function PermanentDrawerLeft() {
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <Header />
+      <Menu />
+      <MainContent />
+      <Footer />
     </Box>
-    <Footer />
-  </div>
-);
-
-export default Home;
+  );
+}
