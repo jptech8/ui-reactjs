@@ -9,6 +9,7 @@ import MainContent from "../../layouts/MainContent/MainContent";
 import Footer from "../../layouts/Footer/Footer";
 
  function Home() {
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
