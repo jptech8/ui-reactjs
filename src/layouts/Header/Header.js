@@ -2,9 +2,28 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
+import {useLocation}  from 'react-router-dom';
+
 const Header = () => {
   const drawerWidth = 240;
-const title = "Customer Details"
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  let title;
+  switch (currentPath) {
+    case '/':
+      title = 'Home';
+      break;
+    case '/users':
+      title = 'User Account';
+      break;
+      case '/sales':
+      title = 'Sales Trend';
+      break;
+    // Add more cases for other routes
+    default:
+      title = 'Home';
+  }
   return (
     <AppBar
       position="fixed"
