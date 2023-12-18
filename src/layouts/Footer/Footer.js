@@ -14,7 +14,7 @@ const Footer = () => {
         textAlign: "center",
       }}
     >
-      Copyright © 2023
+      Copyright ©AMARON 2023
     </Box>
   );
 };

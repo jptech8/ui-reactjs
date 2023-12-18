@@ -14,8 +14,8 @@ const Header = () => {
     case '/':
       title = 'Home';
       break;
-    case '/users':
-      title = 'User Account';
+    case '/reports':
+      title = 'Reports';
       break;
       case '/sales':
       title = 'Sales Trend';
