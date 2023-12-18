@@ -9,6 +9,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import Grid from '@mui/material/Grid';
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 const AddButton = () => {
   const [open, setOpen] = useState(false); // state variable for modal visibility
 
@@ -69,6 +73,7 @@ const AddButton = () => {
     <Grid item xs={6} >
      
     <TextField
+    
         key={newData.id} 
         id="batterySerielNumber"
         label="Battery Seriel Number"
@@ -76,14 +81,22 @@ const AddButton = () => {
         value={newData.batterySerielNumber} 
         onChange={handleChange}
       />
-       <TextField
-        key={newData.id} 
-        id="status"
-        label="Status"
-        name="status" 
-        value={newData.status} 
-        onChange={handleChange}
-      />
+       <FormControl fullWidth   sx={{ margin: "8px" }}>
+                <InputLabel id="status-label">Status</InputLabel>
+                <Select
+                 
+                  id="status"
+                  label="status"
+                  name="status"
+                  value={newData.status}
+                  onChange={handleChange}
+                >  
+                <MenuItem value="Active">Open</MenuItem>
+                  <MenuItem value="OkReturn">Ok Return</MenuItem>
+                  <MenuItem value="Replacement">Replacement</MenuItem>
+                  <MenuItem value="OnWork">On Work</MenuItem>
+                </Select>
+              </FormControl>
     </Grid>
   </Grid>
 </Box>

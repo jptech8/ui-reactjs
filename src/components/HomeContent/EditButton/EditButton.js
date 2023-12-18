@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Dialog from "@mui/material/Dialog";
@@ -7,19 +7,23 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 import Grid from "@mui/material/Grid";
-const EditButton = ({data, onClose }) => {
-  const [updatedData, setUpdatedData] = useState(data ); // Copy selected item data
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+
+const EditButton = ({ data, onClose }) => {
+  const [updatedData, setUpdatedData] = useState(data);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setUpdatedData({ ...updatedData, [name]: value }); // Update specific property based on field change
+    setUpdatedData({ ...updatedData, [name]: value });
   };
+
   const onEditHandle = () => {
-    // Make API call with updatedData ...
     console.log("Edit Submit");
-    
     console.log(updatedData);
-    onClose(); // Close dialog after API call
+    onClose();
   };
 
   return (
@@ -29,7 +33,6 @@ const EditButton = ({data, onClose }) => {
         <CloseIcon onClick={onClose} sx={{ cursor: "pointer" }} />
       </DialogTitle>
       <DialogContent>
-        {/* Add your form fields here */}
         <Box
           component="form"
           sx={{ "& .MuiTextField-root": { m: 1, width: "30ch" } }}
@@ -38,49 +41,56 @@ const EditButton = ({data, onClose }) => {
         >
           <Grid container spacing={3}>
             <Grid item xs={6}>
-            <TextField
-        key={data.id} 
-        id="dealerName"
-        label="Dealer   Name"
-        name="dealerName" 
-        value={updatedData.dealerName} 
-        onChange={handleChange}
-      />
-            </Grid >
-            <Grid item xs={6} >
-            <TextField
-        key={data.id} 
-        id="batteryType"
-        label="Battery Type"
-        name="batteryType" 
-        value={updatedData.batteryType} 
-        onChange={handleChange}
-      />
+              <TextField
+                key={updatedData.id}
+                id="dealerName"
+                label="Dealer   Name"
+                name="dealerName"
+                value={updatedData.dealerName}
+                onChange={handleChange}
+              />
             </Grid>
             <Grid item xs={6}>
-            <TextField
-        key={data.id} 
-        id="batterySerielNumber"
-        label="BatterySerielNumber"
-        name="batterySerielNumber" 
-        value={updatedData.batterySerielNumber} 
-        onChange={handleChange}
-      />
+              <TextField
+                key={updatedData.id}
+                id="batteryType"
+                label="Battery Type"
+                name="batteryType"
+                value={updatedData.batteryType}
+                onChange={handleChange}
+              />
             </Grid>
             <Grid item xs={6}>
-            <TextField
-        key={data.id} 
-        id="status"
-        label="Status"
-        name="status" 
-        value={updatedData.status} 
-        onChange={handleChange}
-      />
+              <TextField
+                key={updatedData.id}
+                id="batterySerielNumberNew"
+                label="New Battery Seriel Number"
+                name="batterySerielNumberNew"
+                value={updatedData.batterySerielNumberNew}
+                onChange={handleChange}
+              />
             </Grid>
-            
+            <Grid item xs={6}>
+            <FormControl fullWidth   sx={{ margin: "8px" }}>
+                <InputLabel id="status-label">Status</InputLabel>
+                <Select
+                 
+                  id="status"
+                  label="status"
+                  name="status"
+                  value={updatedData.status}
+                  onChange={handleChange}
+                >  
+                <MenuItem value="Active">Open</MenuItem>
+                  <MenuItem value="OkReturn">Ok Return</MenuItem>
+                  <MenuItem value="Replacement">Replacement</MenuItem>
+                  <MenuItem value="OnWork">On Work</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
           </Grid>
         </Box>
-        <Button variant="contained"  onClick={() => onEditHandle()}>
+        <Button variant="contained" onClick={() => onEditHandle()}>
           Submit
         </Button>
       </DialogContent>
