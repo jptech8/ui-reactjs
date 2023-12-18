@@ -32,6 +32,7 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Two Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "Ok Return",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 10, 12),
@@ -41,6 +42,7 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Four Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "Ok Return",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 10, 12),
@@ -49,6 +51,7 @@ const TableComponent = () => {
       id: 3,
       dealerName: "Amaron",
       batteryType: "Two Wheeler",
+      batterySerielNumberNew: "Not Available",
       batterySerielNumber: 12345,
       status: "Ok Return",
       createdDateTime: new Date(2020, 8, 12),
@@ -59,7 +62,8 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Electric",
       batterySerielNumber: 12345,
-      status: "Replacement battery",
+      batterySerielNumberNew: "Not Available",
+      status: "Replacement",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 10, 12),
     },
@@ -67,8 +71,9 @@ const TableComponent = () => {
       id: 5,
       dealerName: "Duracel",
       batteryType: "Four Wheeler",
+      batterySerielNumberNew: "Not Available",
       batterySerielNumber: 12345,
-      status: "Replacement battery",
+      status: "Replacement ",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 10, 12),
     },
@@ -77,7 +82,8 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Four Wheeler",
       batterySerielNumber: 12345,
-      status: "Replacement battery",
+      batterySerielNumberNew: "Not Available",
+      status: "Replacement",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 10, 12),
     },
@@ -86,6 +92,7 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Four Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "In Work",
       createdDateTime: new Date(2020, 11, 12),
       updatedDateTime: new Date(2020, 11, 12),
@@ -95,6 +102,7 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Four Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "Delivered",
       createdDateTime: new Date(2020, 9, 12),
       updatedDateTime: new Date(2020, 9, 12),
@@ -104,6 +112,7 @@ const TableComponent = () => {
       dealerName: "Duracel",
       batteryType: "Two Wheeler",
       batterySerielNumber: 234532,
+      batterySerielNumberNew: "Not Available",
       status: "In Work",
       createdDateTime: new Date(2020, 3, 12),
       updatedDateTime: new Date(2020, 10, 12),
@@ -113,6 +122,7 @@ const TableComponent = () => {
       dealerName: "EveryReady",
       batteryType: "Two Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "Open",
       createdDateTime: new Date(2020, 1, 12),
       updatedDateTime: new Date(2020, 4, 12),
@@ -122,6 +132,7 @@ const TableComponent = () => {
       dealerName: "Exide",
       batteryType: "Two Wheeler",
       batterySerielNumber: 12345,
+      batterySerielNumberNew: "Not Available",
       status: "Open",
       createdDateTime: new Date(2020, 8, 12),
       updatedDateTime: new Date(2020, 8, 12),
@@ -143,18 +154,26 @@ const TableComponent = () => {
       headerName: "Battery Type",
       width: 150,
     },
+    
     {
       field: "batterySerielNumber",
-      headerName: "Battery Seriel Number",
+      headerName: "Battery Seriel No",
       type: "singleSelect",
-      width: 200,
+      width: 150,
+    },
+    {
+      field: "batterySerielNumberNew",
+      headerName: "New Battery Seriel No",
+      type: "singleSelect",
+      valueOptions:"Not Available",
+      width: 150,
     },
     {
       field: "status",
       headerName: "Status",
       type: "singleSelect",
       valueOptions: ["Open", "Delivered", "In Progress"],
-      width: 200,
+      width: 150,
     },
     {
       field: "createdDateTime",
@@ -200,7 +219,13 @@ const TableComponent = () => {
         rows={rows}
         columns={columns}
         slots={{ toolbar: GridToolbar }}
+        initialState={{
+          ...rows.initialState,
+          pagination: { paginationModel: { pageSize: 10 } },
+        }}
+        pageSizeOptions={[10, 25, 50]}
       />
+      
       {openDialog && (
         <>
           {selectedAction === "edit" && (
