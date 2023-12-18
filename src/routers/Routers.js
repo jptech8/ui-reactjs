@@ -4,7 +4,7 @@ import Home from '../pages/Home/Home';
 const Routers = () => {
   return (
     <div>
-      <Router>
+      <Router basename='ui-reactjs'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Home />} />
