@@ -1,5 +1,5 @@
 import  Typography  from '@mui/material/Typography';
-import logo from '../../assets/images/logo.png'; 
+import logo from '../../../assets/images/logo.png'; 
 import Toolbar from '@mui/material/Toolbar';
 const Logo = () => (
     <Toolbar>

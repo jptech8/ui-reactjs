@@ -1,8 +1,7 @@
 
 import Box from "@mui/material/Box"
 
-import TableComponent from '../../components/TableComponent/TableComponent'
-import AddButton from '../../components/AddButton/AddButton'
+import HomeContent from '../../components/HomeContent' 
 
 const MainContent = () => {
     return (
@@ -11,8 +10,7 @@ const MainContent = () => {
 component="main"
 sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
 >
-    <AddButton />
-<TableComponent />
+<HomeContent />
 </Box>
 )
     }

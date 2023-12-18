@@ -11,7 +11,7 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PeopleIcon from '@mui/icons-material/People';
 import LogoutIcon from '@mui/icons-material/Logout';
-import Logo from '../../components/Logo/Logo'; 
+import Logo from '../../components/Common/Logo/Logo'; 
 
 
 const Menu = () => {
